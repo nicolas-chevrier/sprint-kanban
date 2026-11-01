@@ -1,0 +1,23 @@
+/* Remplace la police d'icônes SVAR (normalement chargée depuis cdn.svar.dev)
+   par des caractères Unicode, pour rester 100 % local. */
+[class^='wxi-'],
+[class*=' wxi-'] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-style: normal;
+  line-height: 1;
+}
+
+.wxi-dots-h::before { content: '⋯'; font-weight: 700; }
+.wxi-close::before { content: '✕'; }
+.wxi-plus::before { content: '+'; font-size: 1.3em; }
+.wxi-angle-down::before { content: '▾'; }
+.wxi-angle-left::before { content: '‹'; font-size: 1.3em; }
+.wxi-angle-right::before { content: '›'; font-size: 1.3em; }
+.wxi-angle-dbl-left::before { content: '«'; }
+.wxi-angle-dbl-right::before { content: '»'; }
+.wxi-calendar::before { content: '▦'; }
+.wxi-clock::before { content: '◷'; }
+.wxi-message::before { content: '✉'; }
+.wxi-paperclip::before { content: '⎘'; }

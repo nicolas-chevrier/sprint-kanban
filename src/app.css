@@ -1,0 +1,400 @@
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: #f4f5f9;
+}
+
+/* Polices système uniquement (aucune police distante). */
+.wx-willow-theme,
+.wx-theme {
+  --wx-font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+}
+
+/* En-têtes de colonnes : titre, dates et somme des points sur plusieurs lignes. */
+.wx-column-header .wx-title {
+  white-space: pre-line;
+  line-height: 1.35;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.app-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 24px;
+  padding: 10px 16px;
+  background: #fff;
+  border-bottom: 1px solid #e0e3eb;
+}
+
+.app-title h1 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.app-sub {
+  font-size: 13px;
+  color: #5f6577;
+}
+
+.app-range {
+  display: flex;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.app-range label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.app-range input {
+  width: 56px;
+  padding: 4px 6px;
+  border: 1px solid #cdd1dc;
+  border-radius: 4px;
+  font: inherit;
+}
+
+.app-stats {
+  display: flex;
+  gap: 14px;
+  font-size: 13px;
+  color: #3a3f4d;
+}
+
+.app-stats .warn {
+  color: #c62828;
+}
+
+.app-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.app-board {
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+/* Colonnes */
+.col-current {
+  background: #e8f1ff;
+}
+
+.col-past {
+  opacity: 0.75;
+}
+
+.col-backlog {
+  background: #eceef3;
+}
+
+/* Carte feature */
+/* La carte SVAR ajoute son propre padding : on le retire pour une carte compacte. */
+.wx-card:has(> .feature) {
+  padding: 0;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 6px 10px;
+  font-size: 12px;
+  line-height: 1.3;
+  border-left: 5px solid var(--type-color);
+  border-radius: inherit;
+}
+
+.feature-type {
+  padding: 1px 8px;
+  border-radius: 10px;
+  background: var(--type-color);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Légende des types */
+.app-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #3a3f4d;
+}
+
+.app-legend-title {
+  margin-right: 2px;
+}
+
+.app-legend button {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border: 1px solid #d5d8e1;
+  border-radius: 12px;
+  background: #fff;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+
+.app-legend button:hover {
+  border-color: var(--type-color, #9aa0ae);
+}
+
+.app-legend button.active {
+  border-color: var(--type-color);
+  background: var(--type-color);
+  color: #fff;
+}
+
+.app-legend button.active i {
+  background: #fff;
+}
+
+.app-legend button.clear {
+  border-style: dashed;
+}
+
+.app-legend i {
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: var(--type-color);
+}
+
+.feature-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.feature-jira {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 11px;
+  color: #3367d6;
+}
+
+.feature-points {
+  padding: 1px 8px;
+  border-radius: 10px;
+  background: #eef0f5;
+  color: #1f2330;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.feature-title {
+  font-weight: 600;
+  color: #1f2330;
+  word-break: break-word;
+}
+
+.feature-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px 10px;
+  margin: 0;
+  color: #5f6577;
+  font-size: 11px;
+}
+
+.feature-meta b {
+  font-weight: 500;
+  color: #5f6577;
+}
+
+.feature-meta span:not(.feature-jira) {
+  color: #1f2330;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+/* Onglets */
+.app-tabs {
+  display: flex;
+  gap: 4px;
+  padding: 3px;
+  border-radius: 8px;
+  background: #eef0f5;
+}
+
+.app-tabs button {
+  padding: 5px 14px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #3a3f4d;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.app-tabs button.active {
+  background: #fff;
+  color: #1f2330;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 12%);
+}
+
+/* Epic sur la carte */
+.feature-epic {
+  color: #5f6577;
+  font-size: 11px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Vue Epics */
+.epics {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.epic-new {
+  display: flex;
+  gap: 8px;
+  max-width: 480px;
+}
+
+.epic-new input {
+  flex: 1;
+  padding: 6px 10px;
+  border: 1px solid #cdd1dc;
+  border-radius: 4px;
+  font: inherit;
+  font-size: 13px;
+}
+
+.epic {
+  background: #fff;
+  border: 1px solid #e0e3eb;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.epic-none {
+  background: #f9fafc;
+  border-style: dashed;
+}
+
+.epic-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+  padding: 10px 14px;
+  border-bottom: 1px solid #eef0f5;
+}
+
+.epic-name {
+  margin: 0;
+  min-width: 200px;
+  padding: 4px 6px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: transparent;
+  color: #1f2330;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+input.epic-name:hover,
+input.epic-name:focus {
+  border-color: #cdd1dc;
+  background: #fff;
+}
+
+.epic-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 13px;
+  color: #3a3f4d;
+}
+
+.epic-actions {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.epic-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.epic-table th {
+  padding: 6px 14px;
+  background: #f7f8fb;
+  color: #5f6577;
+  font-weight: 500;
+  text-align: left;
+}
+
+.epic-table td {
+  padding: 6px 14px;
+  border-top: 1px solid #f0f1f5;
+  color: #1f2330;
+}
+
+.epic-table .num {
+  text-align: right;
+}
+
+.epic-table tbody tr {
+  cursor: pointer;
+}
+
+.epic-table tbody tr:hover {
+  background: #f4f7ff;
+}
+
+.epic-feature {
+  font-weight: 600;
+}
+
+.epic-empty {
+  margin: 0;
+  padding: 10px 14px;
+  color: #7a8090;
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .epic-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
